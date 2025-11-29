@@ -1,5 +1,14 @@
 # Transaction Management Fullstack (monorepo)
 
+A production-ready fullstack system:
+
+- ⚡ Fastify backend
+- 🐘 TimescaleDB
+- 🐳 Docker + Docker Compose
+- 🧪 Jest + Supertest
+- 🎨 Next.js + Tailwind Dashboard
+- 🔐 JWT Authentication
+
 ## Prereqs
 - Docker & Docker Compose
 - Node (optional for local dev)
