@@ -56,10 +56,22 @@ jobs:
 
       - name: Run backend migrations
         working-directory: backend
+        env:
+          PG_HOST: localhost
+          PG_PORT: 5432
+          PG_DB: db_test
+          PG_USER: admin
+          PG_PASSWORD: admin
         run: npx knex migrate:latest
 
       - name: Run backend seeds
         working-directory: backend
+        env:
+          PG_HOST: localhost
+          PG_PORT: 5432
+          PG_DB: db_test
+          PG_USER: admin
+          PG_PASSWORD: admin
         run: npx knex seed:run
 
       - name: Run backend tests
