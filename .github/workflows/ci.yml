@@ -33,10 +33,12 @@ jobs:
         run: npm run build --workspace frontend
 
       - name: Run backend migrations
-        run: npx knex migrate:latest --workspace backend
+        working-directory: backend
+        run: npx knex migrate:latest
 
       - name: Run backend seeds
-        run: npx knex seed:run --workspace backend
+        working-directory: backend
+        run: npx knex seed:run
 
       - name: Run backend tests
         run: npm run test --workspace backend
