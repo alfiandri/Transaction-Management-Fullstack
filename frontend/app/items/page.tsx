@@ -22,7 +22,7 @@ export default function ItemsPage() {
 
   useEffect(() => {
     loadItems(page, limit);
-  }, [page]);
+  }, [page, limit, loadItems]);
 
   const openCreate = () => {
     setEditData(null);

@@ -27,7 +27,7 @@ export default function TransactionsPage() {
   useEffect(() => {
     loadItems(1, 200);
     loadTransactions(page, limit);
-  }, [page]);
+  }, [page, limit, loadTransactions, loadItems]);
 
   const openCreate = () => {
     setEditData(null);

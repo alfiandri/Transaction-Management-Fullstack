@@ -1,6 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true,
+    eslint: {
+        dirs: ["src", "."], // <-- folder yg valid
+    },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

@@ -6,7 +6,8 @@
         "dev": "next dev",
         "build": "next build",
         "start": "next start",
-        "lint": "next lint",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
         "typecheck": "tsc --noEmit"
     },
     "dependencies": {
@@ -25,8 +26,8 @@
     "devDependencies": {
         "@types/node": "^20.12.7",
         "@types/react": "^18.3.3",
-        "eslint": "^9.0.0",
-        "eslint-config-next": "16.0.3",
+        "eslint": "^9.39.1",
+        "eslint-config-next": "^16.0.3",
         "typescript": "^5.5.0"
     },
     "tailwindcss": {
