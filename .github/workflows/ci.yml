@@ -9,6 +9,20 @@ jobs:
   build-and-test:
     name: CI - Build & Test
     runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16
+        env:
+          POSTGRES_DB: db_test
+          POSTGRES_USER: admin
+          POSTGRES_PASSWORD: admin
+        ports:
+          - "5432:5432"
+        options: >-
+          --health-cmd="pg_isready -U admin"
+          --health-interval=10s
+          --health-timeout=5s
+          --health-retries=5
     strategy:
       matrix:
         node: [24]
@@ -25,6 +39,14 @@ jobs:
 
       - name: Install dependencies (npm workspaces)
         run: npm install --no-audit --no-fund --workspaces
+
+      - name: Wait for Postgres
+        run: |
+          for i in `seq 1 30`; do
+            nc -z localhost 5432 && exit 0
+            sleep 1
+          done
+          exit 1
 
       - name: Build backend
         run: npm run build --workspace backend
